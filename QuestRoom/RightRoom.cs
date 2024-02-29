@@ -1,14 +1,14 @@
 ﻿
 namespace QuestRoom
 {
-    public class LeftRoom
+    public class RightRoom
     {
-        private static LeftRoom instance;
-        public static LeftRoom GetInstance()
+        private static RightRoom instance;
+        public static RightRoom GetInstance()
         {
             if (instance == null)
             {
-                instance = new LeftRoom();
+                instance = new RightRoom();
             }
 
             return instance;
@@ -20,35 +20,19 @@ namespace QuestRoom
         {
             if (i == 0)
             {
-                Console.WriteLine("So you've decided to go to the Left door. Everything in this room situated on the left." +
-                    "On the wall you see some colorful text. Type the answer or return to Main Room");
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Richard ");
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.Write("Of ");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("York ");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Gave ");
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.Write("Battle ");
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.Write("In ");
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.Write("Vain");
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("So you've decided to go to the Right door. In the center of the table you've found paper" +
+                    "with question on it: Who lives in pineapple under the sea? Type the answer or return to Main Room");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("[Main Room]");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine();
 
                 var answer = Console.ReadLine();
-                if (answer == "Red Orange Yellow Green Blue Indigo Violent")
+                if (answer == "SpongeBob SquarePants")
                 {
                     i++;
-                    Console.WriteLine("The riddle is resolved! You've received first part of the exit code: 22. " +
+                    Console.WriteLine("The riddle is resolved! You've received second part of the exit code: 10. " +
                         "Now you can go back to Main Room");
                     ReturnToMainRoomOption();
 
@@ -56,15 +40,17 @@ namespace QuestRoom
                 else if (answer == "Main Room")
                 {
                     MainRoomInstance();
-                }
+                } 
+                else
                 {
-                    Console.WriteLine("Try once more");
+                    Console.WriteLine("Answer is incorrect or check the spelling");
                     Enter();
                 }
             }
             else
             {
-                Console.WriteLine("You've already resolved the riddle and get first part of the code: '22'");
+                Console.WriteLine("You've already resolved the riddle and get first part of the code: '10'. " +
+                    "You can return to the Main Room");
                 ReturnToMainRoomOption();
             }
         }
@@ -85,8 +71,7 @@ namespace QuestRoom
             if (returnToMainRoom == "Main Room")
             {
                 MainRoomInstance();
-            }
-            else
+            } else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Are you ok? You've said something insane");

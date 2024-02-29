@@ -15,72 +15,83 @@ namespace QuestRoom
             return instance;
         }
 
-            public int i = 0;
-            public string door;
+        public int i = 0;
+        public string door;
 
-            public void Enter()
+        public void Enter()
+        {
+            if (i == 0)
             {
-                if (i == 0)
-                {
-                    Console.WriteLine("You are brave enough to enter Quest Room... So, you' ve entered the Main room. You see " +
-                        "three doors. Two of them, on the right and on the left, are opened and waiting for visitors. The door" +
-                        " in front of you has lock with the password. Wich one you'll try?");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("[Left]");
-                    Console.WriteLine("[Right]");
-                    Console.WriteLine("[Front]");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    door = Console.ReadLine();
-                    i++;
-                    DoorChoosing(door);
-                }
-                else
-                {
-                    Console.WriteLine("You are it the Main Room. Wich door will you choose?");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("[Left]");
-                    Console.WriteLine("[Right]");
-                    Console.WriteLine("[Front]");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    door = Console.ReadLine();
-                    DoorChoosing(door);
-                }
+                i++;
+                Console.WriteLine("You are brave enough to enter Quest Room, Well DOne! You are in the Main room. You see " +
+                        "three doors. The left one is painted with different colors. The right one has holes like cheese" +
+                        "or something like that. The door in front of you has some mechanism wich locking the door and 'Exit'" +
+                        "above it. Wich one you'll try?");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("[Left]");
+                Console.WriteLine("[Right]");
+                Console.WriteLine("[Front]");
+                Console.ForegroundColor = ConsoleColor.White;
+                door = Console.ReadLine();
+                DoorChoosing(door);
             }
-
-            public void DoorChoosing(string door)
+            else
             {
-                if (door == "Left")
-                {
-                    LeftRoom leftRoom = LeftRoom.GetInstance();
-                    leftRoom.Enter();
+                Console.WriteLine("You are it the Main Room. Wich door will you choose?");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("[Left]");
+                Console.WriteLine("[Right]");
+                Console.WriteLine("[Front]");
+                Console.ForegroundColor = ConsoleColor.White;
+                door = Console.ReadLine();
+                DoorChoosing(door);
+            }
+        }
 
-                }
-                else if (door == "Right")
-                {
+        public void DoorChoosing(string door)
+        {
+            if (door == "Left")
+            {
+                LeftRoom leftRoom = LeftRoom.GetInstance();
+                leftRoom.Enter();
 
-                }
-                else if (door == "Front")
-                {
-                    Console.WriteLine("You are near the front door. You see the lock, where code need to be inputed. Type the code or return to" +
-                        "start of the Main Room");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("[Main Room]");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    string exitCode = Console.ReadLine();
-                if (exitCode == "1234")
-                {
-                    Console.WriteLine("You've exit Quest Room");
-                }
-                else if (exitCode == "Main Room")
-                {
-                    Enter();
-                }
-                else 
-                {
-                    Console.WriteLine("Password is invalid");
-                }
+            }
+            else if (door == "Right")
+            {
+                RightRoom rightRoom = RightRoom.GetInstance();
+                rightRoom.Enter();
+            }
+            else if (door == "Front")
+            {
+                FrontDoorOpening(); 
 
-                }
-            } 
+            }
+        }
+
+        void FrontDoorOpening()
+        {
+            Console.WriteLine("You are near the Front Door. You see the lock and the plate with numbers. " +
+            "Type the code [****] to open the door or return to start of the Main Room");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("[Main Room]");
+            Console.ForegroundColor = ConsoleColor.White;
+            string exitCode = Console.ReadLine();
+            if (exitCode == "2210")
+            {
+                Console.WriteLine("You've exit Quest Room");
+            }
+            else if (exitCode == "Main Room")
+            {
+                Enter();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Password is invalid. Maybe, you should visit other rooms before?");
+                Console.ForegroundColor = ConsoleColor.White;
+                FrontDoorOpening();
+            }
+        }
     }
 }

@@ -24,10 +24,15 @@ namespace QuestRoom
                     MainRoom mainRoom = MainRoom.GetInstance();
                     mainRoom.Enter();
                 }
-                else
+                else if (startUserMessage == "Exit")
                 {
                     Console.WriteLine("You are the chicken! But you need to start the game");
                     startUserMessage = Console.ReadLine();
+                    CheckStart(startUserMessage);
+                } 
+                else
+                {
+                    Console.WriteLine("Are you ok? You've said something insane. You should start the game");
                     CheckStart(startUserMessage);
                 }
             }
