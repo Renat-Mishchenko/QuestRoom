@@ -20,7 +20,7 @@ namespace QuestRoom
         {
             if (i == 0)
             {
-                Console.WriteLine("So you've decided to go to the Left door. Everything in this room situated on the left." +
+                Console.WriteLine("So you've decided to go to the Left door. Everything in this room situated on the left. " +
                     "On the wall you see some colorful text. Type the answer or return to Main Room");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;

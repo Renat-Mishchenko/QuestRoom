@@ -20,7 +20,7 @@ namespace QuestRoom
         {
             if (i == 0)
             {
-                Console.WriteLine("So you've decided to go to the Right door. In the center of the table you've found paper" +
+                Console.WriteLine("So you've decided to go to the Right door. In the center of the table you've found paper " +
                     "with question on it: Who lives in pineapple under the sea? Type the answer or return to Main Room");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Cyan;

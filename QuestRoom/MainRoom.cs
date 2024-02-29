@@ -24,8 +24,8 @@ namespace QuestRoom
             {
                 i++;
                 Console.WriteLine("You are brave enough to enter Quest Room, Well DOne! You are in the Main room. You see " +
-                        "three doors. The left one is painted with different colors. The right one has holes like cheese" +
-                        "or something like that. The door in front of you has some mechanism wich locking the door and 'Exit'" +
+                        "three doors. The left one is painted with different colors. The right one has holes like cheese " +
+                        "or something like that. The door in front of you has some mechanism wich locking the door and 'Exit' " +
                         "above it. Wich one you'll try?");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("[Left]");
