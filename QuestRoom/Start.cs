@@ -21,8 +21,8 @@ namespace QuestRoom
             {
                 if (startUserMessage == "Start")
                 {
-                    MainRoom mainRoom = new MainRoom();
-                    mainRoom.EnterMainRoom();
+                    MainRoom mainRoom = MainRoom.GetInstance();
+                    mainRoom.Enter();
                 }
                 else
                 {
